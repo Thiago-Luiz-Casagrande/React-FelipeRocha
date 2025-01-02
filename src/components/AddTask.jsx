@@ -1,9 +1,5 @@
 function AddTask() {
-  return (
-    <div>
-      <h1>1</h1>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default AddTask;
