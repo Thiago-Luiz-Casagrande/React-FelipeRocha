@@ -25,14 +25,47 @@ function App() {
       isCompleted: false,
     },
   ]);
+
+  function onTaskClick(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  }
+
+  function onDeleteTaskClick(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
+  }
+
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justfy-center p-6">
-      <div className="w-[500px]">
-        <h1 className="text-3xl text-slate-100 font-bold items-center">
+    <div className="flex-col w-screen h-screen bg-slate-500 flex justfy-center p-6">
+      <div>
+        <h1 className="text-3xl text-slate-100 font-bold text-center my-4">
           Gerenciador de tarefas
         </h1>
       </div>
-      <Tasks tasks={tasks} />
+      <div className="space-y-4 ">
+        <AddTask />
+        <Tasks
+          tasks={tasks}
+          onTaskClick={onTaskClick}
+          onDeleteTaskClick={onDeleteTaskClick}
+        />
+      </div>
     </div>
   );
 }
