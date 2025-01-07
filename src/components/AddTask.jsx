@@ -22,12 +22,12 @@ function AddTask({ onAddTaskSubmit }) {
       />
       <button
         onClick={() => {
-          if (!title || !description) {
+          if (!title.trim() || !description.trim()) {
             return alert("Preencha o titulo e a descrição da tarefa.");
           }
           onAddTaskSubmit(title, description);
-          setTitle("");
           setDescription("");
+          setTitle("");
         }}
         className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
       >
