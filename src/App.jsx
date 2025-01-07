@@ -64,6 +64,7 @@ function App() {
           tasks={tasks}
           onTaskClick={onTaskClick}
           onDeleteTaskClick={onDeleteTaskClick}
+          onAddTaskSubmit={onAddTaskSubmit}
         />
       </div>
     </div>
