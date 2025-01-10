@@ -53,17 +53,19 @@ function App() {
   }
 
   return (
-    <div className="flex-col w-screen h-screen bg-slate-500 flex justfy-center p-6">
-      <div>
-        <Title>Gerenciador de tarefas</Title>
-      </div>
-      <div className="space-y-4 ">
-        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
-        <Tasks
-          tasks={tasks}
-          onTaskClick={onTaskClick}
-          onDeleteTaskClick={onDeleteTaskClick}
-        />
+    <div className="w-screen h-screen bg-slate-500 flex justify-center items-center">
+      <div className="w-100 p-6 rounded-lg">
+        <div>
+          <Title>Gerenciador de tarefas</Title>
+        </div>
+        <div className="space-y-4 ">
+          <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+          <Tasks
+            tasks={tasks}
+            onTaskClick={onTaskClick}
+            onDeleteTaskClick={onDeleteTaskClick}
+          />
+        </div>
       </div>
     </div>
   );
